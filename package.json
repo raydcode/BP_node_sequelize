@@ -1,0 +1,47 @@
+{
+  "name": "boilerplate",
+  "version": "1.0.0",
+  "description": "nodejs boilerplate for sequelize",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm run test",
+    "start": "node_modules/.bin/babel-node --max-old-space-size:4096  -r dotenv/config server.js",
+    "dev": "nodemon -r dotenv/config --exec node_modules/.bin/babel-node server.js",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raydcode/BP_node_sequelize.git"
+  },
+  "keywords": [
+    "node",
+    "sequelize",
+    "orm",
+    "boilerplate",
+    "template",
+    "mvc"
+  ],
+  "author": "raydcode",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raydcode/BP_node_sequelize/issues"
+  },
+  "homepage": "https://github.com/raydcode/BP_node_sequelize#readme",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "pg": "^8.7.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.20.1",
+    "sequelize-cli": "^6.4.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.18.2",
+    "@babel/node": "^7.17.10",
+    "@babel/preset-env": "^7.18.2",
+    "husky": "^8.0.0",
+    "nodemon": "^2.0.16",
+    "pretty-quick": "^3.1.3"
+  }
+}
