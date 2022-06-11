@@ -1,8 +1,17 @@
 import OS from "os";
 import express from "express";
 import routers from "./src/routers";
+import { Sequelize } from "sequelize";
+import config from "./db/config";
 
+/**
+ * Express Instance
+ */
 const app = express();
+
+/**
+ *  PORT ESTABLISHMENT AND BODY PARSING
+ */
 
 const PORT = process.env.PORT || 8080;
 app.set("port", PORT);
@@ -37,4 +46,17 @@ app.get("/", async (req, res) => {
 
 app.use("/api/v1", routers);
 
-app.listen(PORT, console.log("Server is running at port : " + PORT));
+/**
+ *  DATABASE CONNECTION CONFIGURATION
+ */
+
+app.listen(PORT, async () => {
+  try {
+    console.log("Server is running at port : " + PORT);
+    const sequelize = new Sequelize(config[process.env.NODE_ENV]);
+    await sequelize.authenticate();
+    console.log("Connection has been established successfully.");
+  } catch (error) {
+    console.error("Unable to connect to the database:", error);
+  }
+});
