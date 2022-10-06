@@ -1,7 +1,7 @@
 import ErrorResponse from "../utilities/errorResponse";
 import jwt from "jsonwebtoken";
 
-exports.protect = asyncHandler(async (req, res, next) => {
+exports.protect = async (req, res, next) => {
   let token;
   if (
     req.headers.authorization &&
@@ -27,4 +27,4 @@ exports.protect = asyncHandler(async (req, res, next) => {
   } catch (error) {
     return next(new ErrorResponse("Not authorized to access this route", 401));
   }
-});
+};
