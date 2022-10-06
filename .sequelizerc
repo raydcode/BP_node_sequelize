@@ -1,7 +1,6 @@
 
 
-// .sequelizerc
-
+// .sequelizerc helps to find sequelize-cli tool to identify models,seeders,config dynamically
 const path = require('path');
 
 module.exports = {
